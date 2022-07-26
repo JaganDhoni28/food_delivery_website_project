@@ -1,0 +1,618 @@
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+	 <meta http-equip="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap' rel="stylesheet">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	 <script src="https://kit.fontawesome.com/0885571a89.js" crossorigin="anonymous"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	 <title> Forks & Spoons </title> 
+     <link rel="icon" href="C:\Users\JAGAN\OneDrive\Desktop\kisspng-clip-art-image-portable-network-graphics-delivery-momosbox-5ba3c6737e9c11.2489581815374598275186.jpg">
+</head>
+<style>
+     :root
+      { 
+       --maincolor:#f6f8fa;
+       --darkblack:#2d2f31;
+       --darkgrey:#61666b;
+       --grey:#d5d5d5;
+       --lightgrey:#f2f2f2;
+       --yellow:#fecb04;
+       --red:#df113c;
+      }
+	 *
+      {
+       margin:0;
+       padding:0;
+       outline: none;
+       box-sizing: border-box;
+       font-family: "Noto Sans JP", sans-serif;
+      }
+     body
+      {
+       width: 100%;
+       height:auto;
+       color:var(--darkblack);
+       }
+     p
+      {
+       font-size: 14px;
+      }
+     .label-cart
+      {
+       position: fixed;
+        top: 15;
+       right: 10;
+       z-index: 4;
+       cursor: pointer;
+       }
+      
+	.logo
+	  {
+	  position: fixed;
+	  background-color: var(--darkblack);
+	  color:var(--lightgrey);
+	  width: 100%;
+	  padding: 15px 420px 15px 60px;
+	  text-align: center;
+	  top:0;
+	  z-index: 2;
+	  }
+	.sidebar
+      {
+      position: fixed;
+      top:0;
+      left:0;
+      width:50px;
+      height:100%;
+      background-color:var(--maincolor);
+      z-index: 1;
+      padding-top: 70px;
+      }	  
+    .sidebar-menu
+      {
+      width: 100%;
+      text-align:center;
+      padding:10px 5px;
+      color: var(--darkgrey);
+      }
+    .sidebar-menu > a
+      {
+      text-decoration: none;
+      font-size: 0.7rem;
+      line-height: 1.5;
+      color:var(--darkgrey);
+      }
+    .sidebar-menu:hover
+      {
+      border-right:2px solid var(--yellow);
+      color: var(--yellow);
+	   }
+	.sidebar-menu:hover > a
+      {
+      color: var(--yellow);
+      }	  
+    .dashboard
+      {
+       height: 100%;
+       width: 100%;
+       padding-right: 360px;
+       padding-left: 60px;
+      }	   
+    .dashboard-banner
+	  {
+	  width: 100%;
+	  height: 100%;
+	  position: relative;
+	  margin-top: 4rem;
+	  padding:1rem;
+	  border-radius: 30px;
+	  cursor: pointer;
+	  }
+     
+	.dashboard-banner > img
+       {
+        width: 100%;
+        height: 87%;
+        object-fit: cover;
+        border-radius: 30px;
+       }		
+    
+	.dashboard-promo
+      {
+      position: absolute;
+      color: var(--darkblack);
+	  top: 15%;
+	  left: 10%;
+	  font-weight: 800;
+	  }
+	.dashboard-promo > h1 > span 
+      {
+      color: var(--yellow);
+       }
+    	   
+    .dashboard-title
+      { 
+       padding: 0 4rem;
+      }	   
+    
+	.dashboard-menu
+	{
+	 display: flex;
+	 gap: 10px;
+	 padding: 0 4rem 1rem;
+	 overflow: auto;
+	 }
+	.dashboard-menu > a
+     {
+      text-decoration: none;
+      text-align: center;
+      border-radius: 20px;
+      min-width: 120px;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--darkblack);
+      background-color: var(--lightgrey);
+	  }	  
+    .dashboard-menu > a:hover
+	 {
+	 background-color: var(--red);
+	 color: var(--lightgrey);
+	 }
+	.dashboard-content
+     {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0.5rem 1rem 1rem 2.5rem;
+     }	 
+    .dashboard-card
+     {
+      background-color: var(--maincolor);
+	  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	  border-radius: 15px;
+	  position: relative;
+	  cursor: pointer;
+      }	
+
+    .dashboard-card:hover
+	  {
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  }
+	
+	.card-image
+      {
+       width: 100%;
+       height: 150px;
+       object-fit: cover;
+       border-box: 15px;
+	   border-radius: 20px;
+       }
+     
+	.card-details
+	  {
+	   padding: 10px;
+	   }
+	
+    .card-details > h4 > span
+      {
+       float: right;
+       }
+     
+	.card-time
+      {
+	   color: var(--darkgrey);
+	   font-size: 0.8rem;
+	   padding-top: 10px;
+	   }
+    .dashboard-starter
+    {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0.5rem 1rem 1rem 2.5rem;
+    }
+    .dashboard-starter-card
+    {
+      background-color: var(--maincolor);
+	  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	  border-radius: 15px;
+	  position: relative;
+	  cursor: pointer;   
+    }
+    .dashboard-starter-card:hover
+    {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+	   
+	.dashboard-order
+      {
+       width: 340px;
+       min-height: 100%;
+       position: fixed;
+       top: 0;
+       right: 0;
+       padding: 20px 30px 30px 30px;
+       background-color: var(--maincolor);
+       z-index: 3;
+	   }	   
+	.dashboard-order > h3
+      {
+       padding: 10px 0;
+       }	   
+    .dashboard-order > h4
+	  {
+	   line-height: 2;
+	   }
+	.order-time
+      {
+       font-size: 0.8rem;
+       color: var(--darkgrey);
+       }	   
+    .order-wrapper
+	  {
+	  height: 180px;
+	  width: 100%;
+	  overflow-y:scroll;
+      margin: 20px 0;
+      }
+    .order-wrapper::-webkit-scrollbar
+      {
+	  width: 7px;
+	  }
+	.order-wrapper::-webkit-scrollbar-track
+      {
+       background-color: var(--lightgrey);
+	   border-radius: 20px;
+       }	   
+    .order-wrapper::-webkit-scrollbar-thumb
+       {
+        background-color: var(--darkgrey);
+		border-radius: 20px;
+        }
+    .order-card
+       {
+        display: grid;
+        grid-template-columns: 0.6fr 1fr 0.5fr;
+        padding: 10px 0;
+        gap: 5px;
+		justify-content: space-around;
+		align-items: flex-start;
+		}	
+    .order-image
+	    {
+		width: 70px;
+		height: 70px;
+		object-fit: cover;
+        border-radius: 15px;
+        }		
+	.order-detail > input
+        {
+         width: 35px;
+         height: 35px;
+         text-align: center;
+         border: 2px solid var(--grey);
+         border-radius: 10px;
+		 background-color: transparent;
+		 margin-left: 10px;
+		 }		 
+	.divider
+	   {
+	    width: 100%;
+		border: 1px dashed var(--grey);
+		}
+	.order-total > p 
+       {
+	   padding: 10px 0;
+	   }
+	.order-total > p > span
+       {
+        float: right;
+        font-weight: 600;
+        }		
+    .order-promo
+       {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--lightgrey);
+        border: 2px solid var(--grey);
+		border-radius: 10px;
+		height: 45px;
+		padding: 0 5px;
+		margin: 5px 0 10px 0;
+        }		
+	.input-promo 
+	   {
+	    height: 100%;
+		background-color: transparent;
+		border: none;
+		}
+	.button-promo
+       {
+        float: right;
+        background-color: var(--yellow);
+        border: none;
+        border-radius: 5px;
+		height: 80%;
+		width: 100%;
+		cursor: pointer;
+        }
+    .checkout
+       {
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        background-color: var(--red);
+        border: none;
+        border-radius: 20px;
+        color: var(--lightgrey);
+		cursor: pointer;
+		}		
+	.checkout:hover
+	    {
+		text-transform: uppercase;
+		font-weight: 600;
+		}
+	#cart
+        {
+        display: none;
+        }
+    #cart:checked ~ .label-cart 
+	    {
+		color: var(--lightgrey);
+		}
+	#cart:checked ~ .dashboard
+        {
+        padding-right: 10px;
+         }
+    #cart:checked ~ .dashboard-order
+        {
+        display: none;
+         }
+    #cart:checked ~ .logo
+        {
+        padding-right: 0px;
+        }
+    @media screen and (max-width: 680px)
+    {
+	.dashboard
+	   {
+	   width: 100%;
+       left: 0;
+        }
+    .dashboard-order
+       {
+        width: 100%;
+        left:0;
+        }		
+    }	
+	footer
+	  {
+       width: 100%;
+       height: 10%; 
+       padding: 20px;  
+	   text-align: center;
+	   background-color: #2d2f31;
+	   color: grey;
+	   }
+	
+</style>
+
+
+	 
+	 
+<body>
+     <input type="checkbox" id="cart">
+	 <label for="cart" class="label-cart"><span class="fas fa-shopping-cart"></span></label>
+	 <h3 class="logo"> jagannathan food delivery </h3>
+	 <div class="sidebar">
+	     <div class="sidebar-menu">
+		     <span class="fas fa-search"></span>
+			 <a href="#">Search</a>
+		 </div>
+		 <div class="sidebar-menu">
+             <span class="fas fa-home"></span>
+			 <a href="#">Home</a>
+		 </div>	 
+		 <div class="sidebar-menu">
+             <span class="fas fa-heart"></span>
+			 <a href="C:\Users\JAGAN\OneDrive\Desktop\food project\favs.html">Favs</a>
+         </div>
+         <div class="sidebar-menu">
+             <span class="fas fa-user"></span>
+			 <a href="#">Profile</a>
+         </div>
+		 <div class="sidebar-menu">
+             <span class="fas fa-sliders-h"></span>
+			 <a href="#">Setting</a>
+	     </div>
+	 </div>	 
+	 
+	 <div class="dashboard">
+	     <div class="dashboard-banner">
+		     <img src="C:\Users\JAGAN\OneDrive\Desktop\socialmedia\navbar\slideshow-9.jpg">
+			 <div class="dashboard-promo">
+			 <h1><span>50% off</span><br>Tasty Food<br>On Your Door Step</h1>
+			 </div>
+	     </div>  
+	</div>	 
+		 
+		 <h2 class="dashboard-title">Recommend Food For You</h2>
+		 <div class="dashboard-menu">
+		    <a href="C:\Users\JAGAN\OneDrive\Desktop\food project\favs.html">Favorites</a>
+		    <a href="C:\Users\JAGAN\OneDrive\Desktop\food project\bestsellers.html">Best Seller</a>
+			<a href="#">Near me</a>
+			<a href="#">Promotion</a>
+            <a href="#">Top Rated</a>
+		    <a href="#">All</a>
+		</div>	
+	 	
+    <div class="dashboard-content"> 
+        <div class="dashboard-card">
+            <img class="card-image" src="https://swall.teahub.io/photos/small/32-329177_just-pizza-wallpaper-pizza-wallpaper-hd.jpg">
+            <div class="card-details">
+                <h4>Amazing pizza<span> Rs.199</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+		</div>	
+        <div class="dashboard-card">
+                <img class="card-image" src="https://media.istockphoto.com/photos/luxurious-vegetable-salad-picture-id453952167?k=20&m=453952167&s=612x612&w=0&h=fzs6rCG5JWaZRZuLOM7hcevXlgOC-5tNfSjlWSOWcP8=">
+				<div class="card-details">
+				<h4>Fresh Salad<span> Rs.159</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>    			
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://www.foxvalleyfoodie.com/wp-content/uploads/2015/05/pad-kee-mao-recipe.jpg">
+            <div class="card-details">
+                <h4>Noodles<span> Rs.159</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+		</div>	
+		<div class="dashboard-card">
+            <img class="card-image" src="https://img.myloview.com/stickers/indian-cuisine-basmati-rice-pilaf-pulao-with-peas-or-matar-rice-and-vegetables-400-246579598.jpg">
+            <div class="card-details">
+                <h4>Fried Rice<span> Rs.159</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>			
+	    <div class="dashboard-card">
+            <img class="card-image" src="https://webneel.com/wnet/file/images/3-17/4-masala-dosa-indiafood-photography-by-shirish-sen.jpg">
+            <div class="card-details">
+                <h4>Plain Dosa<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://us.123rf.com/450wm/indianfoodimages/indianfoodimages1910/indianfoodimages191001372/134406467-idli-sambhar-or-idly-sambar-is-a-popular-south-indian-food-served-with-coconut-chutney-.jpg?ver=6">
+            <div class="card-details">
+                <h4>Set Idly<span> Rs.69</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://thumbs.dreamstime.com/b/indian-breakfast-ven-pongal-sambar-tamil-nadu-ven-pongal-sambar-coconut-chutney-popular-indian-breakfast-food-tamil-nadu-193589393.jpg">
+            <div class="card-details">
+                <h4>Ghee Pongal<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://img-global.cpcdn.com/recipes/5c455eb37cc28a84/680x482cq70/%E0%A4%A1%E0%A4%B0%E0%A4%88-%E0%A4%9B%E0%A4%B2-%E0%A4%AE%E0%A4%B8%E0%A4%B2-%E0%A4%B5%E0%A4%A5-%E0%A4%AA%E0%A4%B0-dry-chole-masala-with-puri-recipe-in-hindi-%E0%A4%B0%E0%A4%B8%E0%A4%AA-%E0%A4%AE%E0%A4%96%E0%A4%AF-%E0%A4%A4%E0%A4%B8%E0%A4%B5%E0%A4%B0.jpg">
+            <div class="card-details">
+                <h4>Chola Poori<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://t4.ftcdn.net/jpg/02/29/55/23/360_F_229552315_VsKpPRRFQ3BWbMA6w2LCOOqeOJWJDIWZ.jpg">
+            <div class="card-details">
+                <h4>Royal Paratha<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="http://www.blog.sagmart.com/wp-content/uploads/2015/06/onion-tomato-uttapam.jpg">
+            <div class="card-details">
+                <h4>Onion Uttapam<span> Rs.119</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://www.dwarakaorganic.com/wp-content/uploads/2022/04/Upma.jpg">
+            <div class="card-details">
+                <h4>Rava Upma<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+		<div class="dashboard-card">
+            <img class="card-image" src="https://media.istockphoto.com/photos/curd-rice-with-pomegranate-cilantro-mustard-seeds-ginger-indian-picture-id1314941180?k=20&m=1314941180&s=612x612&w=0&h=OiRIygLV6Y6nciIceypOZmTBzWXE49IoMhEbzZxQ2I0=">
+            <div class="card-details">
+                <h4>Curd Rice<span> Rs.99</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+        </div>
+        <div class="dashboard-starter">
+        <hr class="divider">    
+        <h2>Food Starters</h2>
+        <br>
+	    <div class="dashboard-starter-card">
+            <img class="card-image" src="https://thumbs.dreamstime.com/b/tandoori-paneer-tikka-marinated-cheese-cubes-spices-yogurt-indian-dish-188315528.jpg">
+            <div class="card-details">
+                <h4>Paneer Tikka<span> Rs.159</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+		</div>
+        <div class="dashboard-starter-card">
+            <img class="card-image" src="https://images6.alphacoders.com/439/439410.jpg">
+            <div class="card-details">
+                <h4>Paneer Tikka<span> Rs.159</span></h4>
+                <p class="card-time"><span class="fas fa-clock"></span> 15-30mins</p>
+            </div>
+		</div>	    
+        </div>
+    </div>	
+	
+	<div class="dashboard-order">
+	    <h3>Order Menu</h3>
+		<div class="order-address">
+		   <p>Address delivery</p>
+		   <h4>101 B Anna Salai, Chennai</h4>
+		</div>
+        <div clas="order-time">
+        		<span class="fas fa-clock"></span> 30 mins <span class="fas fa-map-marker-alt"></span>		
+        </div> 	
+	<div class="order-wrapper">
+        <div class="order-card">
+            <img class="order-image" src="https://img.myloview.com/stickers/indian-cuisine-basmati-rice-pilaf-pulao-with-peas-or-matar-rice-and-vegetables-400-246579598.jpg">		
+		    <div class="order-detail">
+		    <p>A hungry man is an angry man</p>
+			<i class="fas fa times"></i> <input type="text" value="1">
+		    </div>
+            <h4 class="order-price">Rs.159</h4>
+		</div>
+         <div class="order-card">
+		    <img class="order-image" src="https://media.istockphoto.com/photos/luxurious-vegetable-salad-picture-id453952167?k=20&m=453952167&s=612x612&w=0&h=fzs6rCG5JWaZRZuLOM7hcevXlgOC-5tNfSjlWSOWcP8=">
+			<div class="order-detail">
+		    <p>A hungry man is an angry man</p>
+			<i class="fas fa times"></i> <input type="text" value="1">
+		    </div>
+            <h4 class="order-price">Rs.159</h4>
+		</div>
+        <div class="order-card">
+			<img class="order-image" src="https://swall.teahub.io/photos/small/32-329177_just-pizza-wallpaper-pizza-wallpaper-hd.jpg">
+			<div class="order-detail">
+		    <p>A hungry man is an angry man</p>
+			<i class="fas fa times"></i> <input type="text" value="1">
+		    </div>
+            <h4 class="order-price">Rs.199</h4>
+		</div>
+	</div>	
+        <hr class="divider">
+        <div class="order-total">
+		<p>Subtotal<span>Rs.517</span></p>
+		<p>Tax(10%)<span>Rs.51.7</span></p>
+		<p>Delivery chargers<span>Rs.15</span></p>
+		<div class="order-promo">
+		   <input class="input-promo" type="text" placeholder="Apply Voucher">
+		   <button class="button-promo">Find Promo</button>
+		</div>
+		<hr class="divider"> 
+		<p>Total <span>Rs.583.7</span></p>
+	   </div>
+       <button class="checkout">
+        Checkout
+       </button>		
+	</div>	
+	<footer>
+	 <h3>With<i class="fa-solid fa-heart"></i>Visit Again, Created by <a href="https://www.instagram.com/jagan_dhoni_/">Jagan</a></h3>
+    </footer>
+</body>
+
+</html>	 
+	 
+	 
